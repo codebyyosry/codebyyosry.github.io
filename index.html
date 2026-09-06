@@ -4,751 +4,324 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yosry Badr | Senior Android Developer & Solution Architect</title>
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#06b6d4', // Cyan 500
-                        secondary: '#6366f1', // Indigo 500
-                        darkBg: '#0f172a', // Slate 900
-                        cardBg: '#1e293b', // Slate 800
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Google Fonts & Lucide Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-        }
-        .glow-effect {
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
-        }
-        .glow-subtle {
-            box-shadow: 0 0 15px -3px rgba(99, 102, 241, 0.2);
-        }
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-900">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#home" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-slate-900 text-xl group-hover:scale-105 transition-transform">
-                    YB
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">Yosry Badr</span>
-                    <span class="text-xs text-slate-400">Solution Architect</span>
-                </div>
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="text-brand-500">&lt;</span>YosryBadr<span class="text-brand-500">/&gt;</span>
             </a>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#about" class="text-slate-300 hover:text-cyan-400 text-sm font-medium transition-colors">About</a>
-                <a href="#skills" class="text-slate-300 hover:text-cyan-400 text-sm font-medium transition-colors">Tech Stack</a>
-                <a href="#experience" class="text-slate-300 hover:text-cyan-400 text-sm font-medium transition-colors">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-cyan-400 text-sm font-medium transition-colors">Projects</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-semibold text-sm transition-all shadow-md hover:shadow-cyan-500/20">Contact Me</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brand-500 transition-colors">About</a>
+                <a href="#experience" class="hover:text-brand-500 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a>
+                <a href="#education" class="hover:text-brand-500 transition-colors">Education & Certs</a>
+                <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
             </nav>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#about" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">About</a>
-            <a href="#skills" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Tech Stack</a>
-            <a href="#experience" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Experience</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium">Projects</a>
-            <a href="#contact" class="block mt-4 py-2 text-center rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 text-slate-950 font-semibold">Contact Me</a>
+            <a href="mailto:yosry.jobs@gmail.com" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-brand-500/20">
+                <i class="fa-regular me-1 fa-envelope"></i> Get In Touch
+            </a>
         </div>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-16">
         <!-- Hero Section -->
-        <section id="home" class="min-h-[calc(100vh-80px)] flex items-center relative overflow-hidden py-12 lg:py-20">
-            <!-- Ambient Background Effects -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
-                <div class="md:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-cyan-400 text-xs font-medium">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                        Available for Architecture & Native Mobile Strategy
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">Yosry Badr</span>
-                    </h1>
-
-                    <div class="text-xl sm:text-2xl font-mono text-slate-300 h-10 flex items-center">
-                        <span id="typed-text" class="typing-cursor font-semibold text-cyan-400"></span>
-                    </div>
-
-                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        With over 5+ years of software craftsmanship, I build mission-critical Android apps with Jetpack Compose & Clean Architecture, while designing robust full-stack & enterprise cloud solution pipelines.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2">
-                            <i data-lucide="layers" class="w-4 h-4"></i> Explore Projects
-                        </a>
-                        <a href="#contact" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
-                            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
-                        </a>
-                    </div>
-
-                    <!-- Social Badges & Links -->
-                    <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center gap-3 text-slate-400">
-                        <span class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Connect:</span>
-                        
-                        <a href="https://github.com/codebyyosry" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 transition-colors" title="GitHub Primary">
-                            <i data-lucide="github" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://github.com/YosrySWE" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 hover:text-cyan-400 transition-colors border border-slate-700 flex items-center gap-1.5" title="GitHub Archive">
-                            <i data-lucide="archive" class="w-3.5 h-3.5"></i> @YosrySWE (Archive)
-                        </a>
-                        <a href="https://www.linkedin.com/in/yosry-badr/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 transition-colors" title="LinkedIn">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://g.dev/yosrybadr" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 transition-colors" title="Google Dev Profile">
-                            <i data-lucide="code-2" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://yosrybadr.my.canva.site/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 transition-colors" title="Canva Portfolio">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+        <section id="about" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="flex-1 space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span> Open to Relocation (GCC, Europe, APAC)[cite: 1]
                 </div>
-
-                <!-- Code Terminal Preview Card -->
-                <div class="md:col-span-5">
-                    <div class="bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden glow-subtle">
-                        <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="text-xs font-mono text-slate-400">YosryArchitect.kt</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                    Senior Android Developer <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-indigo-200">& Solution Architect</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+                    5+ years of dedicated Android engineering within an 8-year technology career[cite: 1]. Specialized in Kotlin, Jetpack Compose, Clean Architecture, modular system design, and CI/CD pipelines[cite: 1]. Shipped mission-critical production apps across banking, telehealth ($500K seed funded), and edtech (1M+ downloads)[cite: 1].
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                    <a href="#experience" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-xl transition shadow-lg shadow-brand-600/20">
+                        View Experience
+                    </a>
+                    <a href="https://github.com/codebyyosry" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-brands fa-github"></i> GitHub Profile
+                    </a>
+                </div>
+                <!-- Profile Mention Banner -->
+                <div class="mt-6 p-3 bg-slate-900/90 border border-slate-800 rounded-lg text-xs text-slate-400 flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-box-archive text-brand-400"></i>
+                    <span>Looking for earlier open-source projects? Check out my archived profile: <a href="https://github.com/YosrySWE" target="_blank" class="text-brand-400 hover:underline font-mono">@YosrySWE</a></span>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-96 flex justify-center">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-900 p-1 shadow-2xl">
+                    <div class="w-full h-full bg-slate-900 rounded-[15px] p-6 flex flex-col justify-between border border-slate-800">
+                        <div class="flex justify-between items-center text-slate-500 font-mono text-xs">
+                            <span>yosry_dev.kt</span>
+                            <i class="fa-solid fa-code"></i>
                         </div>
-                        <div class="p-5 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed overflow-x-auto">
-                            <p class="text-purple-400">class <span class="text-yellow-300">SolutionArchitect</span> {</p>
-                            <p class="pl-4 text-slate-400">// Core Stack & Principles</p>
-                            <p class="pl-4"><span class="text-cyan-400">val</span> primaryRole = <span class="text-emerald-400">"Senior Android Specialist"</span></p>
-                            <p class="pl-4"><span class="text-cyan-400">val</span> coreLanguage = <span class="text-emerald-400">"Kotlin + Coroutines/Flow"</span></p>
-                            <p class="pl-4"><span class="text-cyan-400">val</span> uiFramework = <span class="text-emerald-400">"Jetpack Compose"</span></p>
-                            <p class="pl-4"><span class="text-cyan-400">val</span> backend = <span class="text-emerald-400">"Node.js, Kafka, PostgreSQL"</span></p>
-                            <p class="pl-4"><span class="text-cyan-400">val</span> methodology = <span class="text-emerald-400">"Clean Architecture & TDD"</span></p>
-                            <br>
-                            <p class="pl-4 text-purple-400">fun <span class="text-blue-400">deliverScalableApps</span>(): Solution {</p>
-                            <p class="pl-8 text-cyan-400">return <span class="text-yellow-300">Solution</span>(</p>
-                            <p class="pl-12">performance = <span class="text-emerald-400">"Optimal"</span>,</p>
-                            <p class="pl-12">testCoverage = <span class="text-emerald-400">"High"</span>,</p>
-                            <p class="pl-12">userExperience = <span class="text-emerald-400">"Delightful"</span></p>
-                            <p class="pl-8">)</p>
-                            <p class="pl-4">}</p>
-                            <p class="text-purple-400">}</p>
+                        <div class="font-mono text-xs text-brand-300 space-y-2">
+                            <p><span class="text-purple-400">val</span> status = <span class="text-emerald-400">"Building Enterprise Apps"</span></p>
+                            <p><span class="text-purple-400">val</span> location = <span class="text-emerald-400">"Kuwait / Relocating"</span>[cite: 1]</p>
+                            <p><span class="text-purple-400">val</span> coreStack = listOf(</p>
+                            <p class="pl-4 text-amber-300">"Kotlin", "Jetpack Compose",</p>
+                            <p class="pl-4 text-amber-300">"Clean Architecture", "CI/CD"</p>
+                            <p>)</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-around text-slate-400 text-lg">
+                            <a href="https://linkedin.com/in/yosry-badr" target="_blank" class="hover:text-brand-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/codebyyosry" target="_blank" class="hover:text-brand-400 transition"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://g.dev/yosrybadr" target="_blank" class="hover:text-brand-400 transition"><i class="fa-brands fa-google"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">About Me</h2>
-                    <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
-                    <p class="text-slate-400 mt-4 text-base sm:text-lg">
-                        Passion for high-performance software, robust Android engineering, and microservices integration.
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Bio Overview -->
-                    <div class="lg:col-span-2 bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 sm:p-8 space-y-4">
-                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                            <i data-lucide="user" class="text-cyan-400 w-5 h-5"></i> Software Engineer & Architect
-                        </h3>
-                        <p class="text-slate-300 leading-relaxed">
-                            I am a graduate in Computer Science from <strong>Ain Shams University</strong> with 5+ years of practical experience engineering scalable Android applications and distributed web services. My focus lies in designing resilient architectures using Kotlin, Jetpack Compose, and modern async patterns.
-                        </p>
-                        <p class="text-slate-300 leading-relaxed">
-                            I specialize in taking products from inception to enterprise deployment, adhering strictly to SOLID design principles, Clean Architecture, and rigorous automated testing regimes.
-                        </p>
-
-                        <!-- GitHub Profile Dual Notice Box -->
-                        <div class="mt-6 p-4 rounded-xl bg-slate-900 border border-slate-700 flex items-start gap-4">
-                            <div class="p-2 bg-slate-800 rounded-lg text-cyan-400 mt-0.5">
-                                <i data-lucide="git-branch" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold text-white">GitHub Accounts & History</h4>
-                                <p class="text-xs text-slate-400 mt-1">
-                                    Current primary account: <a href="https://github.com/codebyyosry" target="_blank" class="text-cyan-400 hover:underline">@codebyyosry</a>.<br>
-                                    Previous legacy repositories & projects archive: <a href="https://github.com/YosrySWE" target="_blank" class="text-cyan-400 hover:underline">@YosrySWE</a>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Education & Credentials -->
-                    <div class="space-y-6">
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400">
-                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-base">B.Sc. Computer Science</h4>
-                                    <p class="text-xs text-slate-400">Ain Shams University (2013 - 2017)</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">
-                                Strong foundation in algorithms, data structures, software engineering lifecycle, and database systems.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400">
-                                    <i data-lucide="award" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-base">MicroMasters Certificate</h4>
-                                    <p class="text-xs text-slate-400">University of Maryland (6 Months)</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">
-                                Software Testing & Verification: Focused on unit testing, functional verification, automated test suites, and software quality assurance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tech Stack & Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Technical Ecosystem</h2>
-                    <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
-                    <p class="text-slate-400 mt-4 text-base">
-                        Comprehensive skill set spanning native Android development, backend architecture, and DevOps.
-                    </p>
-                </div>
-
-                <!-- Category Tabs -->
-                <div class="flex justify-center gap-2 sm:gap-4 mb-10 overflow-x-auto pb-2">
-                    <button onclick="switchTab('mobile')" id="tab-mobile" class="skill-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-cyan-500 text-slate-950 shadow-md">
-                        Android & Mobile
-                    </button>
-                    <button onclick="switchTab('backend')" id="tab-backend" class="skill-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
-                        Backend & Cloud
-                    </button>
-                    <button onclick="switchTab('tools')" id="tab-tools" class="skill-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
-                        Testing & DevOps
-                    </button>
-                </div>
-
-                <!-- Tab Panels -->
-                <div id="skills-container" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Dynamic Skills Cards will load via JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience / Timeline Section -->
         <!-- Career Highlights / Experience Section -->
-<section id="experience" class="py-16 bg-slate-900 text-slate-100">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold text-center text-white mb-12">
-      Career <span class="text-indigo-400">Highlights</span>
-    </h2>
+        <section id="experience" class="py-16 bg-slate-900 text-slate-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-white mb-12">
+                    Career <span class="text-brand-400">Highlights</span>
+                </h2>
 
-    <div class="relative border-l-2 border-indigo-500/30 ml-4 md:ml-32 space-y-12">
+                <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-12">
 
-      <!-- Warba Bank -->
-      <div class="relative pl-8 group">
-        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-slate-900"></div>
-        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
-          Apr 2026 – Present[cite: 1]
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-indigo-500/50 transition">
-          <div class="flex flex-wrap justify-between items-baseline mb-2">
-            <h3 class="text-xl font-bold text-white">Senior Android Developer <span class="text-xs text-indigo-400 font-normal border border-indigo-400/30 px-2 py-0.5 rounded ml-2">Contract</span>[cite: 1]</h3>
-            <span class="text-sm font-medium text-slate-400">Warba Bank • Kuwait[cite: 1]</span>
-          </div>
-          <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
-            <li>Led end-to-end Android delivery for the Warba Bank digital banking app and SiDi digital wallet (100K+ downloads each)[cite: 1].</li>
-            <li>Architected versioned internal GitHub Packages (Core Domain, Core UI, Conversational UI) enforcing Clean Architecture boundaries[cite: 1].</li>
-            <li>Built and maintained GitHub Actions CI/CD pipelines, release signing workflows, and publishing channels[cite: 1].</li>
-            <li>Planned and executed Firebase and Google Play Services dependency migrations across multiple workspace repositories[cite: 1].</li>
-          </ul>
-        </div>
-      </div>
+                    <!-- Warba Bank -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-slate-900"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
+                            Apr 2026 – Present[cite: 1]
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-brand-500/50 transition">
+                            <div class="flex flex-wrap justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-bold text-white">Senior Android Developer <span class="text-xs text-brand-400 font-normal border border-brand-400/30 px-2 py-0.5 rounded ml-2">Contract</span>[cite: 1]</h3>
+                                <span class="text-sm font-medium text-slate-400">Warba Bank • Kuwait[cite: 1]</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
+                                <li>Led end-to-end Android delivery for the Warba Bank digital banking app and SiDi digital wallet (100K+ downloads each)[cite: 1].</li>
+                                <li>Architected versioned internal GitHub Packages (Core Domain, Core UI, Conversational UI) enforcing Clean Architecture boundaries[cite: 1].</li>
+                                <li>Built and maintained GitHub Actions CI/CD pipelines, release signing workflows, and publishing channels[cite: 1].</li>
+                                <li>Planned and executed Firebase and Google Play Services dependency migrations across multiple workspace repositories[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
 
-      <!-- Tocaan -->
-      <div class="relative pl-8 group">
-        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-slate-900"></div>
-        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
-          Sep 2025 – Dec 2025[cite: 1]
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-indigo-500/50 transition">
-          <div class="flex flex-wrap justify-between items-baseline mb-2">
-            <h3 class="text-xl font-bold text-white">Senior Android Developer <span class="text-xs text-indigo-400 font-normal border border-indigo-400/30 px-2 py-0.5 rounded ml-2">Contract</span>[cite: 1]</h3>
-            <span class="text-sm font-medium text-slate-400">Tocaan • Kuwait[cite: 1]</span>
-          </div>
-          <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
-            <li>Delivered features, bug fixes, and stabilization for production apps including BO-DINAR, Fix Pro, Shoor, and Couponat[cite: 1].</li>
-            <li>Managed end-to-end Android delivery using Kotlin and Clean Architecture from client requirement scoping to Google Play release[cite: 1].</li>
-            <li>Led client requirement sessions, created Business Requirements Documents (BRDs), and managed delivery ticketing[cite: 1].</li>
-          </ul>
-        </div>
-      </div>
+                    <!-- Tocaan -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-slate-900"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
+                            Sep 2025 – Dec 2025[cite: 1]
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-brand-500/50 transition">
+                            <div class="flex flex-wrap justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-bold text-white">Senior Android Developer <span class="text-xs text-brand-400 font-normal border border-brand-400/30 px-2 py-0.5 rounded ml-2">Contract</span>[cite: 1]</h3>
+                                <span class="text-sm font-medium text-slate-400">Tocaan • Kuwait[cite: 1]</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
+                                <li>Delivered features, bug fixes, and stabilization for production apps including BO-DINAR, Fix Pro, Shoor, and Couponat[cite: 1].</li>
+                                <li>Managed end-to-end Android delivery using Kotlin and Clean Architecture from client requirement scoping to Google Play release[cite: 1].</li>
+                                <li>Led client requirement sessions, created Business Requirements Documents (BRDs), and managed delivery ticketing[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
 
-      <!-- Majid Al Futtaim -->
-      <div class="relative pl-8 group">
-        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-slate-900"></div>
-        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
-          Jun 2022 – Sep 2025[cite: 1]
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-indigo-500/50 transition">
-          <div class="flex flex-wrap justify-between items-baseline mb-2">
-            <h3 class="text-xl font-bold text-white">Technology Operations Specialist[cite: 1]</h3>
-            <span class="text-sm font-medium text-slate-400">Majid Al Futtaim (Carrefour) • Kuwait[cite: 1]</span>
-          </div>
-          <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
-            <li>Managed technology operations for Carrefour retail platforms, bridging business requirements and engineering teams[cite: 1].</li>
-            <li>Directed Agile lifecycles in Jira for complex digital initiatives adhering to standard SDLC practices[cite: 1].</li>
-            <li>Triaged and resolved high-priority incidents in live production environments to protect platform availability[cite: 1].</li>
-          </ul>
-        </div>
-      </div>
+                    <!-- Majid Al Futtaim -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-slate-900"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
+                            Jun 2022 – Sep 2025[cite: 1]
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-brand-500/50 transition">
+                            <div class="flex flex-wrap justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-bold text-white">Technology Operations Specialist[cite: 1]</h3>
+                                <span class="text-sm font-medium text-slate-400">Majid Al Futtaim (Carrefour) • Kuwait[cite: 1]</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
+                                <li>Managed technology operations for Carrefour retail platforms, bridging business requirements and engineering teams[cite: 1].</li>
+                                <li>Directed Agile lifecycles in Jira for complex digital initiatives adhering to standard SDLC practices[cite: 1].</li>
+                                <li>Triaged and resolved high-priority incidents in live production environments to protect platform availability[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
 
-      <!-- Estshara -->
-      <div class="relative pl-8 group">
-        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-slate-900"></div>
-        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
-          Feb 2021 – Jun 2022[cite: 1]
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-indigo-500/50 transition">
-          <div class="flex flex-wrap justify-between items-baseline mb-2">
-            <h3 class="text-xl font-bold text-white">Senior Android Developer[cite: 1]</h3>
-            <span class="text-sm font-medium text-slate-400">Estshara • Egypt[cite: 1]</span>
-          </div>
-          <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
-            <li>Built a telehealth platform that helped secure USD 500,000 in seed funding from Egypt Ventures[cite: 1].</li>
-            <li>Scaled app performance to achieve a 4.6 Google Play rating and over 10,000 downloads[cite: 1].</li>
-            <li>Integrated real-time video (Vonage, AWS Chime) and chat (Firebase, QuickBlox) for virtual doctor consultations[cite: 1].</li>
-          </ul>
-        </div>
-      </div>
+                    <!-- Estshara -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-slate-900"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
+                            Feb 2021 – Jun 2022[cite: 1]
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg hover:border-brand-500/50 transition">
+                            <div class="flex flex-wrap justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-bold text-white">Senior Android Developer[cite: 1]</h3>
+                                <span class="text-sm font-medium text-slate-400">Estshara • Egypt[cite: 1]</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300 text-sm">
+                                <li>Built a telehealth platform that helped secure USD 500,000 in seed funding from Egypt Ventures[cite: 1].</li>
+                                <li>Scaled app performance to achieve a 4.6 Google Play rating and over 10,000 downloads[cite: 1].</li>
+                                <li>Integrated real-time video (Vonage, AWS Chime) and chat (Firebase, QuickBlox) for virtual doctor consultations[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
 
-      <!-- Earlier Roles Summary -->
-      <div class="relative pl-8 group">
-        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-slate-900"></div>
-        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
-          2017 – 2021[cite: 1]
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg">
-          <h3 class="text-xl font-bold text-white mb-2">Earlier Engineering Roles[cite: 1]</h3>
-          <div class="space-y-3 text-slate-300 text-sm">
-            <p><strong class="text-indigo-400">Nahdet Misr Publishing Group (2020–2021):</strong> Maintained Aladwaa educational app (1M+ downloads)[cite: 1].</p>
-            <p><strong class="text-indigo-400">Vinci Design & Freelance (2019–2020):</strong> Published client apps including TvQuran (MP3 Quran) and LeMonde[cite: 1].</p>
-            <p><strong class="text-indigo-400">Penta Value (2017–2018):</strong> Developed and published two Android applications from scratch to Google Play[cite: 1].</p>
-          </div>
-        </div>
-      </div>
+                    <!-- Earlier Roles Summary -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-slate-900"></div>
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm text-slate-400 font-semibold mb-2 md:mb-0">
+                            2017 – 2021[cite: 1]
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700/50 shadow-lg">
+                            <h3 class="text-xl font-bold text-white mb-2">Earlier Engineering Experience[cite: 1]</h3>
+                            <div class="space-y-3 text-slate-300 text-sm">
+                                <p><strong class="text-brand-400">Nahdet Misr Publishing Group (2020–2021):</strong> Maintained Aladwaa educational app (1M+ downloads)[cite: 1].</p>
+                                <p><strong class="text-brand-400">Vinci Design & Freelance (2019–2020):</strong> Published client apps including TvQuran (MP3 Quran) and LeMonde[cite: 1].</p>
+                                <p><strong class="text-brand-400">Penta Value (2017–2018):</strong> Developed and published two Android applications from scratch to Google Play[cite: 1].</p>
+                            </div>
+                        </div>
+                    </div>
 
-    </div>
-  </div>
-</section>
-
-        <!-- Projects Showcase Section -->
-        <section id="projects" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects</h2>
-                    <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
-                    <p class="text-slate-400 mt-4 text-base">
-                        A sample of native mobile, architectural solutions, and full-stack systems.
-                    </p>
                 </div>
+            </div>
+        </section>
 
-                <!-- Projects Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all group flex flex-col justify-between">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Android Native</span>
-                                <a href="https://github.com/codebyyosry" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                                    <i data-lucide="github" class="w-5 h-5"></i>
-                                </a>
-                            </div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Compose Clean Tech App</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Production-ready Android architecture sample featuring Jetpack Compose, Clean Architecture, Kotlin Coroutines, Flow, and Hilt dependency injection.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">Jetpack Compose</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">KSP / Hilt</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">Coroutines</span>
-                            </div>
-                        </div>
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-white mb-12">
+                Technical <span class="text-brand-400">Competencies</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Mobile Core -->
+                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fa-brands fa-android"></i>
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all group flex flex-col justify-between">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Backend & Queue</span>
-                                <a href="https://github.com/codebyyosry" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                                    <i data-lucide="github" class="w-5 h-5"></i>
-                                </a>
-                            </div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors mb-2">Event-Driven Microservices</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Scalable backend system integrated with Apache Kafka and RabbitMQ message brokers for async mobile client notification pipelines.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">Node.js</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">Kafka</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">PostgreSQL</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all group flex flex-col justify-between">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Automation</span>
-                                <a href="https://github.com/codebyyosry" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                                    <i data-lucide="github" class="w-5 h-5"></i>
-                                </a>
-                            </div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">Automated CI/CD & Testing</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                Automated Android build, test verification, and deployment pipelines utilizing GitHub Actions and Power Automate Desktop.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">GitHub Actions</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">Power Automate</span>
-                                <span class="text-xs font-mono bg-slate-900 px-2 py-1 rounded text-slate-300">JUnit</span>
-                            </div>
-                        </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Android Core & Architecture</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Kotlin</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Jetpack Compose</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Clean Architecture</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">MVVM / MVI</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Multi-module</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Hilt / Dagger</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Coroutines & Flow</span>[cite: 1]
                     </div>
                 </div>
 
-                <!-- Call to Canva & Archives -->
-                <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="space-y-1 text-center md:text-left">
-                        <h4 class="text-lg font-bold text-white">Want to see more interactive demos & past works?</h4>
-                        <p class="text-sm text-slate-400">Explore my Canva Portfolio site or browse my legacy open-source projects archive.</p>
+                <!-- DevOps & Security -->
+                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="https://yosrybadr.my.canva.site/" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-colors flex items-center gap-1.5">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Canva Portfolio
-                        </a>
-                        <a href="https://github.com/YosrySWE" target="_blank" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition-colors flex items-center gap-1.5">
-                            <i data-lucide="archive" class="w-4 h-4"></i> @YosrySWE Archive
-                        </a>
+                    <h3 class="text-lg font-bold text-white mb-3">DevOps & Security</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">GitHub Actions</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Fastlane</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">ProGuard/R8</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">SSL Pinning</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Unit Testing</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Espresso</span>[cite: 1]
+                    </div>
+                </div>
+
+                <!-- Secondary & Backend -->
+                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Secondary & Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Flutter</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">Node.js</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">PostgreSQL</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">MongoDB</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">AWS</span>[cite: 1]
+                        <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">GraphQL</span>[cite: 1]
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Connect</h2>
-                    <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
-                    <p class="text-slate-400 mt-4 text-base">
-                        Have a project in mind, an architecture query, or a position to discuss? Send a message below.
-                    </p>
-                </div>
+        <!-- Education & Certifications -->
+        <section id="education" class="py-16 bg-slate-900/50 border-t border-b border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-white mb-12">
+                    Education & <span class="text-brand-400">Credentials</span>
+                </h2>
 
-                <div class="grid lg:grid-cols-12 gap-12">
-                    <!-- Contact Info Cards -->
-                    <div class="lg:col-span-5 space-y-6">
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 flex items-center gap-4">
-                            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400">
-                                <i data-lucide="linkedin" class="w-6 h-6"></i>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Education -->
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-graduation-cap text-brand-400 text-2xl"></i>
                             <div>
-                                <h4 class="text-sm font-semibold text-slate-400">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/yosry-badr/" target="_blank" class="text-base font-bold text-white hover:text-cyan-400 transition-colors">
-                                    in/yosry-badr
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 flex items-center gap-4">
-                            <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400">
-                                <i data-lucide="github" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-400">GitHub (New & Active)</h4>
-                                <a href="https://github.com/codebyyosry" target="_blank" class="text-base font-bold text-white hover:text-cyan-400 transition-colors">
-                                    github.com/codebyyosry
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 flex items-center gap-4">
-                            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400">
-                                <i data-lucide="archive" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-400">GitHub Archive</h4>
-                                <a href="https://github.com/YosrySWE" target="_blank" class="text-base font-bold text-white hover:text-cyan-400 transition-colors">
-                                    github.com/YosrySWE
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 flex items-center gap-4">
-                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
-                                <i data-lucide="code-2" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-400">Google Developer</h4>
-                                <a href="https://g.dev/yosrybadr" target="_blank" class="text-base font-bold text-white hover:text-cyan-400 transition-colors">
-                                    g.dev/yosrybadr
-                                </a>
+                                <h3 class="text-lg font-bold text-white">B.Sc. Computer Science</h3>
+                                <p class="text-xs text-slate-400">Major: Software Engineering • Ain Shams University (2017)</p>[cite: 1]
                             </div>
                         </div>
                     </div>
 
-                    <!-- Contact Form UI -->
-                    <div class="lg:col-span-7 bg-slate-800/50 border border-slate-700/60 rounded-2xl p-8">
-                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <!-- Certifications -->
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-certificate text-brand-400 text-xl mt-1"></i>
                             <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
-                                <input type="text" id="name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="John Doe">
+                                <h4 class="text-sm font-bold text-white">MicroMasters Program in Software Testing & Verification</h4>
+                                <p class="text-xs text-slate-400">University of Maryland (edX), 2020</p>[cite: 1]
                             </div>
-
+                        </div>
+                        <div class="flex items-start gap-3 pt-2 border-t border-slate-800">
+                            <i class="fa-solid fa-award text-brand-400 text-xl mt-1"></i>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
-                                <input type="email" id="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="john@example.com">
+                                <h4 class="text-sm font-bold text-white">Advanced Cloud Developer Nanodegree</h4>
+                                <p class="text-xs text-slate-400">Udacity / Information Technology Institute (ITI), 2022</p>[cite: 1]
                             </div>
-
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                                <textarea id="message" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Hi Yosry, I'd like to discuss..."></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
-                                <i data-lucide="send" class="w-4 h-4"></i> Send Message
-                            </button>
-                        </form>
-
-                        <!-- Notification Container -->
-                        <div id="form-status" class="hidden mt-4 p-4 rounded-xl text-sm font-medium"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-slate-400 text-xs">
-                © <span id="year"></span> Yosry Badr. Crafted for high-performance mobile & software architecture.
+        <!-- Footer / Contact -->
+        <footer id="contact" class="py-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <h2 class="text-2xl font-bold text-white">Let's Build Exceptional Android Solutions</h2>
+            <p class="text-slate-400 text-sm max-w-md mx-auto">
+                Reach out for contract opportunities, mobile architecture consulting, or senior Android roles.
             </p>
-            <div class="flex items-center gap-4 text-xs text-slate-400">
-                <a href="https://github.com/codebyyosry" target="_blank" class="hover:text-cyan-400">GitHub @codebyyosry</a>
-                <span>•</span>
-                <a href="https://github.com/YosrySWE" target="_blank" class="hover:text-cyan-400">Archive @YosrySWE</a>
+            <div class="flex justify-center gap-6 text-xl text-slate-400">
+                <a href="mailto:yosry.jobs@gmail.com" class="hover:text-brand-400 transition" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/yosry-badr" target="_blank" class="hover:text-brand-400 transition" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/codebyyosry" target="_blank" class="hover:text-brand-400 transition" title="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript Application Logic -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Dynamic Year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Navigation Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on click link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Typewriter Effect
-        const titles = [
-            "Senior Android Specialist",
-            "Solution Architect",
-            "Jetpack Compose Advocate",
-            "Full Stack Mobile Developer"
-        ];
-        let titleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typedTextSpan = document.getElementById('typed-text');
-
-        function type() {
-            const currentTitle = titles[titleIndex];
-            
-            if (isDeleting) {
-                typedTextSpan.textContent = currentTitle.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedTextSpan.textContent = currentTitle.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentTitle.length) {
-                typeSpeed = 2000; // Pause at end
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                titleIndex = (titleIndex + 1) % titles.length;
-                typeSpeed = 500; // Pause before typing next
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            type();
-            switchTab('mobile'); // Initial Tab render
-        });
-
-        // Skills Tab Data & Logic
-        const skillsData = {
-            mobile: [
-                { name: "Kotlin", detail: "Coroutines, Flow, KSP", icon: "code" },
-                { name: "Jetpack Compose", detail: "Modern Declarative UI", icon: "layout" },
-                { name: "Clean Architecture", detail: "MVVM / MVI Patterns", icon: "layers" },
-                { name: "Dependency Injection", detail: "Hilt, Koin", icon: "box" },
-                { name: "Room & SQLite", detail: "Offline Persistence", icon: "database" },
-                { name: "Retrofit & Ktor", detail: "REST APIs & Sockets", icon: "globe" },
-                { name: "Flutter / Dart", detail: "Cross-platform mobile", icon: "smartphone" },
-                { name: "Java", detail: "Legacy Android & Enterprise", icon: "cpu" }
-            ],
-            backend: [
-                { name: "Node.js & Express", detail: "RESTful Async APIs", icon: "server" },
-                { name: "Kafka & RabbitMQ", detail: "Message Queues & Streaming", icon: "message-square" },
-                { name: "PostgreSQL", detail: "Relational DB Management", icon: "database" },
-                { name: "React.js", detail: "Web Interfaces & Dashboards", icon: "monitor" },
-                { name: "Redis", detail: "Caching & In-Memory Store", icon: "zap" },
-                { name: "REST & WebSockets", detail: "Real-time communication", icon: "wifi" }
-            ],
-            tools: [
-                { name: "Software Testing", detail: "JUnit, Mockk, Espresso", icon: "check-circle-2" },
-                { name: "GitHub Actions", detail: "Automated CI/CD Pipelines", icon: "git-pull-request" },
-                { name: "Power Automate", detail: "Desktop Process Automation", icon: "workflow" },
-                { name: "Agile & Scrum", detail: "Sprint planning & Jira", icon: "users" },
-                { name: "Git & Version Control", detail: "Branching strategies", icon: "git-branch" },
-                { name: "Android Studio", detail: "Profiling & Performance", icon: "terminal" }
-            ]
-        };
-
-        function switchTab(category) {
-            // Update active button state
-            document.querySelectorAll('.skill-tab').forEach(btn => {
-                btn.classList.remove('bg-cyan-500', 'text-slate-950', 'shadow-md');
-                btn.classList.add('bg-slate-800', 'text-slate-300');
-            });
-
-            const activeBtn = document.getElementById(`tab-${category}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
-                activeBtn.classList.add('bg-cyan-500', 'text-slate-950', 'shadow-md');
-            }
-
-            // Render items
-            const container = document.getElementById('skills-container');
-            container.innerHTML = '';
-
-            skillsData[category].forEach(skill => {
-                const card = document.createElement('div');
-                card.className = "bg-slate-800/40 border border-slate-700/60 rounded-xl p-5 hover:border-cyan-500/40 transition-all flex items-start gap-4";
-                card.innerHTML = `
-                    <div class="p-2.5 rounded-lg bg-slate-900 text-cyan-400 border border-slate-700/80">
-                        <i data-lucide="${skill.icon}" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">${skill.name}</h4>
-                        <p class="text-xs text-slate-400 mt-1">${skill.detail}</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-
-            lucide.createIcons();
-        }
-
-        // Contact Form Submission Handler
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const statusBox = document.getElementById('form-status');
-            
-            // Show feedback without alert()
-            statusBox.className = "mt-4 p-4 rounded-xl text-sm font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-400";
-            statusBox.textContent = "Thank you! Your message has been simulated successfully. Feel free to connect directly via LinkedIn or GitHub.";
-            statusBox.classList.remove('hidden');
-
-            document.getElementById('contact-form').reset();
-
-            setTimeout(() => {
-                statusBox.classList.add('hidden');
-            }, 6000);
-        }
-    </script>
+            <p class="text-xs text-slate-600 pt-6">
+                &copy; 2026 Yosry Badr. Built and hosted via GitHub Pages.
+            </p>
+        </footer>
+    </main>
 </body>
 </html>
