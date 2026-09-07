@@ -713,6 +713,9 @@
                     <button data-tab="client"
                         class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-white">Client
                         &amp; Social Platforms</button>
+                    <button data-tab="tasks"
+                        class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-white">Company
+                        Assessment Tasks</button>
                 </div>
         
                 <!-- ===================== FINTECH & BANKING ===================== -->
@@ -1408,10 +1411,222 @@
                     </div>
                 </div>
         
+                <!-- ===================== COMPANY ASSESSMENT TASKS ===================== -->
+                <div class="tab-panel" id="panel-tasks">
+                    <p class="text-slate-400 text-sm mb-8 max-w-3xl">
+                        Practical coding challenges assigned directly by companies during their hiring process. Each repository
+                        contains the original task brief alongside my solution.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+                        <!-- Warba Bank - Newest -->
+                        <div
+                            class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/50 transition-all hover:-translate-y-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xs px-2.5 py-1 rounded-md bg-cyan-900/40 text-cyan-300 font-semibold border border-cyan-700/50">Warba
+                                        Bank</span>
+                                    <span
+                                        class="text-xs px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800/50">Newest</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Weather Now &amp; Later — Android</h4>
+                                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                                    A modularized Android app showing current weather and a 7-day forecast for a searched city,
+                                    mixing
+                                    MVVM (city input, current weather) with MVI (forecast list) under Clean Architecture,
+                                    Dagger-Hilt DI,
+                                    a custom published utility library, and a GitHub Actions CI/CD pipeline (lint, unit tests,
+                                    APK build).
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Kotlin</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">MVVM +
+                                        MVI</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Clean
+                                        Architecture</span>
+                                    <span
+                                        class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Dagger-Hilt</span>
+                                    <span
+                                        class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Modularization</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">CI/CD</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                                <a href="https://github.com/codebyyosry/weathernowlater_android" target="_blank"
+                                    class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                                    View GitHub Repository
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- PlanRadar -->
+                        <div
+                            class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all hover:-translate-y-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xs px-2.5 py-1 rounded-md bg-indigo-900/40 text-indigo-300 font-semibold border border-indigo-700/50">PlanRadar</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Archived</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Weather Task — Android</h4>
+                                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                                    An Android app for maintaining a list of cities with current weather (via OpenWeatherMap)
+                                    and a
+                                    historical log of past lookups per city, with async requests, a loading indicator, and MVVM
+                                    +
+                                    reactive programming (RxJava/Kotlin coroutines).
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Kotlin</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">MVVM</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">RxJava</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">OpenWeatherMap
+                                        API</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                                <a href="https://github.com/YosrySWE/weather-task-planradar" target="_blank"
+                                    class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">
+                                    View GitHub Repository
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- Nagwa -->
+                        <div
+                            class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/50 transition-all hover:-translate-y-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xs px-2.5 py-1 rounded-md bg-purple-900/40 text-purple-300 font-semibold border border-purple-700/50">Nagwa</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Archived</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Downloader Task — Android</h4>
+                                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                                    An Android app that lets users select and download multiple videos/books, showing per-item
+                                    progress,
+                                    download state, and automatic retries (up to 3 attempts) on failure, with downloaded files
+                                    openable
+                                    in external apps. Built with Clean Architecture (MVVM), Dagger2, and RxJava2.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Kotlin</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Clean
+                                        Architecture</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Dagger2</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">RxJava2</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                                <a href="https://github.com/YosrySWE/downloader-task-nagwa" target="_blank"
+                                    class="inline-flex items-center gap-2 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+                                    View GitHub Repository
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- Halan -->
+                        <div
+                            class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition-all hover:-translate-y-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xs px-2.5 py-1 rounded-md bg-amber-900/40 text-amber-300 font-semibold border border-amber-700/50">Halan</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Archived</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Fixing &amp; Refactoring Challenge</h4>
+                                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                                    Diagnosed and fixed a broken login/profile/product-listing Android app, repaired its
+                                    networking
+                                    layer, and refactored the codebase toward Clean Architecture and SOLID principles to support
+                                    future
+                                    feature work, UI changes, and testing.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Android</span>
+                                    <span
+                                        class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Debugging</span>
+                                    <span
+                                        class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Refactoring</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Clean
+                                        Architecture</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">SOLID</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                                <a href="https://github.com/YosrySWE/fixing-refactoring_challenge-task-halan" target="_blank"
+                                    class="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                                    View GitHub Repository
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- Instabug -->
+                        <div
+                            class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-rose-500/50 transition-all hover:-translate-y-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xs px-2.5 py-1 rounded-md bg-rose-900/40 text-rose-300 font-semibold border border-rose-700/50">Instabug</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300">Archived</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Repeated Words — Android</h4>
+                                <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                                    Fetches and parses the Instabug homepage HTML to display a searchable, sortable list of word
+                                    frequencies, with offline caching of the last parsed results and error/empty-state handling
+                                    — built
+                                    with zero third-party networking, threading, or database libraries per Instabug's
+                                    constraints.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Android (No
+                                        3rd-Party Libs)</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">HTML
+                                        Parsing</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300">Unit/UI
+                                        Testing</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-700/50 pt-4 mt-auto">
+                                <a href="https://github.com/YosrySWE/repeated-words-android-task-instabug" target="_blank"
+                                    class="inline-flex items-center gap-2 text-sm font-semibold text-rose-400 hover:text-rose-300 transition-colors">
+                                    View GitHub Repository
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+        
             </div>
         </section>
         
-
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
